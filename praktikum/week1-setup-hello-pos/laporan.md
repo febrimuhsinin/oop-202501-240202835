@@ -87,9 +87,9 @@ public class HelloFunctional {
 
 ## Hasil Eksekusi
 (Sertakan screenshot hasil eksekusi program.  
-1. Procedural![Screenshot hasil](screenshots/Screenshot 2025-10-01 212130)
-2. OOP![Screenshot hasil](screenshots/Screenshot 2025-10-01 212617)
-3. Functional![Screenshot hasil](screenshots/Screenshot 2025-10-01 215457)
+1. Procedural![Screenshot hasil](screenshots/Screenshot 2025-10-01 212130.png)
+2. OOP![Screenshot hasil](screenshots/Screenshot 2025-10-01 212617.png)
+3. Functional![Screenshot hasil](screenshots/Screenshot 2025-10-01 215457.png)
 )
 ---
 
