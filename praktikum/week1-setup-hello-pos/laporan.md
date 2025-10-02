@@ -115,16 +115,20 @@ public class HelloFunctional {
 
 2. [Kapan functional programming lebih cocok digunakan
  dibanding OOP atau prosedural? ]  
-   **Jawaban:** … Saat butuh pemrosesan data, paralelisme, dan kode ringkas (mis. map/filter/reduce).
+   **Jawaban:** … 
+   Saat butuh pemrosesan data, paralelisme, dan kode ringkas (mis. map/filter/reduce).
 
 3. [Bagaimana paradigma (prosedural, OOP, fungsional) 
 memengaruhi maintainability dan scalability aplikasi? ]  
-   **Jawaban:** … Prosedural sulit dikelola saat besar, OOP lebih terstruktur dan scalable, fungsional ringkas, reusable, dan cocok untuk sistem paralel.
+   **Jawaban:** … 
+   Prosedural sulit dikelola saat besar, OOP lebih terstruktur dan scalable, fungsional ringkas, reusable, dan cocok untuk sistem paralel.
 
 4. [MengapaOOP lebih cocok untuk mengembangkan
  aplikasi POS dibanding prosedural? ]  
-   **Jawaban:** … Karena POS punya banyak entitas (produk, transaksi, pelanggan) yang lebih mudah dimodelkan dengan class dan object.
+   **Jawaban:** … 
+   Karena POS punya banyak entitas (produk, transaksi, pelanggan) yang lebih mudah dimodelkan dengan class dan object.
 
 5. [Bagaimana paradigma fungsional dapat membantu
  mengurangi kode berulang (boilerplate code)? ]  
-   **Jawaban:** … Dengan fungsi murni dan higher-order function, logika bisa dipakai ulang tanpa banyak kode berulang.
+   **Jawaban:** … 
+   Dengan fungsi murni dan higher-order function, logika bisa dipakai ulang tanpa banyak kode berulang.
