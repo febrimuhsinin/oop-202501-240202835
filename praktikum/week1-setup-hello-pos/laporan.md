@@ -10,7 +10,7 @@ Topik: [Paradigma Pemrograman (Prosedural, OOP, dan Fungsional)"]
 
 ## Tujuan
 1. Mengenal perbedaan cara penulisan program dengan 3 paradigma (prosedural, OOP, fungsional).
-2. Membuat program sederhana “Hello World, I am <nama>-<nim>” dengan 3 cara berbeda.
+2. Membuat program sederhana “Hello World, I am (nama>)-(nim)” dengan 3 cara berbeda.
 3. Mengetahui kelebihan dan kekurangan tiap pendekatan.
 
 ---
@@ -29,12 +29,13 @@ Topik: [Paradigma Pemrograman (Prosedural, OOP, dan Fungsional)"]
 2. Membuat file kode program untuk masing-masing paradigma (misalnya: HelloProsedural.java, HelloOOP.java, HelloFungsional.java).
 3. Menuliskan kode program sederhana dengan output:
 
-Hello World, I am <nama>-<nim>
+   Hello World, I am (nama)-(nim)
+
 4. Commit hasil coding dengan pesan commit misalnya:
 
-git add .
-git commit -m "Praktikum Minggu 1 - Hello World 3 Paradigma"
-git push origin main
+   - git add .
+   - git commit -m "upload tugas"
+   - git push origin main
 
 ---
 
@@ -86,9 +87,9 @@ public class HelloFunctional {
 
 ## Hasil Eksekusi
 (Sertakan screenshot hasil eksekusi program.  
-1. Procedural![Screenshot hasil](screenshots/Screenshot 2025-10-01 212130 Procedural)
-2. OOP![Screenshot hasil](screenshots/Screenshot 2025-10-01 212617 OOP)
-3. Functional![Screenshot hasil](screenshots/Screenshot 2025-10-01 215457 Functional)
+1. Procedural![Screenshot hasil](screenshots/Screenshot 2025-10-01 212130)
+2. OOP![Screenshot hasil](screenshots/Screenshot 2025-10-01 212617)
+3. Functional![Screenshot hasil](screenshots/Screenshot 2025-10-01 215457)
 )
 ---
 
