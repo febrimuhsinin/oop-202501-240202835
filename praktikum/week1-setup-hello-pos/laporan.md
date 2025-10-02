@@ -1,73 +1,129 @@
 # Laporan Praktikum Minggu 1 (sesuaikan minggu ke berapa?)
-Topik: [Tuliskan judul topik, misalnya "Class dan Object"]
+Topik: [Paradigma Pemrograman (Prosedural, OOP, dan Fungsional)"]
 
 ## Identitas
-- Nama  : [Nama Mahasiswa]
-- NIM   : [NIM Mahasiswa]
-- Kelas : [Kelas]
+- Nama  : [Febri Muhsinin]
+- NIM   : [240202835]
+- Kelas : [3ikra]
 
 ---
 
 ## Tujuan
-(Tuliskan tujuan praktikum minggu ini.  
-Contoh: *Mahasiswa memahami konsep class dan object serta dapat membuat class Produk dengan enkapsulasi.*)
+1. Mengenal perbedaan cara penulisan program dengan 3 paradigma (prosedural, OOP, fungsional).
+2. Membuat program sederhana “Hello World, I am <nama>-<nim>” dengan 3 cara berbeda.
+3. Mengetahui kelebihan dan kekurangan tiap pendekatan.
 
 ---
 
-## Dasar Teori
-(Tuliskan ringkasan teori singkat (3–5 poin) yang mendasari praktikum.  
-Contoh:  
-1. Class adalah blueprint dari objek.  
-2. Object adalah instansiasi dari class.  
-3. Enkapsulasi digunakan untuk menyembunyikan data.)
+## Dasar Teori  
+1. Paradigma Prosedural: Pendekatan pemrograman berbasis langkah-langkah prosedur atau instruksi yang dijalankan secara berurutan.
+2. Paradigma OOP (Object-Oriented Programming): Pendekatan pemrograman dengan konsep objek, class, enkapsulasi, inheritance, dan polymorphism.
+3. Paradigma Fungsional: Pemrograman berbasis fungsi matematis, menghindari perubahan state, dan lebih menekankan pada penggunaan ekspresi.
+4. Perbedaan paradigma membantu programmer memilih metode yang tepat sesuai kebutuhan sistem.
+5. Setiap paradigma memiliki kelebihan dan kekurangan dalam hal kompleksitas, skalabilitas, dan keterbacaan kode.
 
 ---
 
 ## Langkah Praktikum
-(Tuliskan Langkah-langkah dalam prakrikum, contoh:
-1. Langkah-langkah yang dilakukan (setup, coding, run).  
-2. File/kode yang dibuat.  
-3. Commit message yang digunakan.)
+1. Fork repositori mhbahara/oop-202501 ke akun GitHub pribadi, rename menjadi oop-20251-<nim>, dan clone ke komputer lokal.
+2. Membuat file kode program untuk masing-masing paradigma (misalnya: HelloProsedural.java, HelloOOP.java, HelloFungsional.java).
+3. Menuliskan kode program sederhana dengan output:
+
+Hello World, I am <nama>-<nim>
+4. Commit hasil coding dengan pesan commit misalnya:
+
+git add .
+git commit -m "Praktikum Minggu 1 - Hello World 3 Paradigma"
+git push origin main
 
 ---
 
 ## Kode Program
-(Tuliskan kode utama yang dibuat, contoh:  
-
+1. Procedural
 ```java
 // Contoh
-Produk p1 = new Produk("BNH-001", "Benih Padi", 25000, 100);
-System.out.println(p1.getNama());
+public class HelloProcedural {
+   public static void main(String[] args) {
+      String nim = "240202835";
+      String nama = "Febri Muhsinin";
+
+      System.out.println("Total harga semua produk: " + nama+"-"+ nim);
+   }
+}
 ```
-)
+2. OOP
+```java
+// Contoh
+public class HelloProcedural {
+ class Mahasiswa { 
+String nama; int nim; 
+Mahasiswa(String n, int u){ nama=n; nim=u; } 
+void sapa(){ System.out.println("Hello word, i am " + nama+"-"+nim); } 
+} 
+public class HelloOOP { 
+public static void main(String[] args) { 
+Mahasiswa m = new Mahasiswa("Febri Muhsinin", 240202835); 
+m.sapa(); 
+} 
+} 
+```
+1. Functional
+```java
+// Contoh
+import java.util.function.BiConsumer;
+
+public class HelloFunctional {
+    public static void main(String[] args) {
+        BiConsumer<String,Integer> sapa =
+            (nama, nim) -> System.out.println("Hello word, i am " + nama +"-"+nim);
+
+        sapa.accept("Febri Muhsinin", 240202835);
+    }
+}
+```
+
 ---
 
 ## Hasil Eksekusi
 (Sertakan screenshot hasil eksekusi program.  
-![Screenshot hasil](screenshots/hasil.png)
+1. Procedural![Screenshot hasil](screenshots/Screenshot 2025-10-01 212130 Procedural)
+2. OOP![Screenshot hasil](screenshots/Screenshot 2025-10-01 212617 OOP)
+3. Functional![Screenshot hasil](screenshots/Screenshot 2025-10-01 215457 Functional)
 )
 ---
 
 ## Analisis
 (
-- Jelaskan bagaimana kode berjalan.  
-- Apa perbedaan pendekatan minggu ini dibanding minggu sebelumnya.  
-- Kendala yang dihadapi dan cara mengatasinya.  
+- Prosedural: sederhana dan langsung, cocok untuk program kecil. Kekurangan: sulit dikelola jika program semakin besar.
+- OOP: lebih terstruktur karena menggunakan class dan object. Cocok untuk proyek besar, tapi agak panjang untuk program sederhana.
+- Fungsional: ringkas dan mudah dibaca jika terbiasa. Namun, bagi pemula lebih sulit dipahami karena konsep lambda/functional interface.
+- Perbedaan paling mencolok adalah cara pendekatan: prosedural → instruksi step by step, OOP → berbasis objek, fungsional → berbasis fungsi murni.
 )
 ---
 
 ## Kesimpulan
-(Tuliskan kesimpulan dari praktikum minggu ini.  
-Contoh: *Dengan menggunakan class dan object, program menjadi lebih terstruktur dan mudah dikembangkan.*)
+- Paradigma pemrograman memberikan cara pandang berbeda dalam menyelesaikan masalah dengan kode.
+- Prosedural cocok untuk program kecil, OOP untuk sistem besar dan kompleks, sedangkan fungsional untuk perhitungan ekspresif dan data processing.
+- Dengan memahami ketiga paradigma, mahasiswa dapat memilih pendekatan terbaik sesuai kebutuhan aplikasi.
 
 ---
 
 ## Quiz
-(1. [Tuliskan kembali pertanyaan 1 dari panduan]  
-   **Jawaban:** …  
+1. [Apakah OOP selalu lebih baik dari prosedural? ]  
+   **Jawaban:** … Tidak selalu. OOP bagus untuk aplikasi besar, prosedural lebih simpel untuk program kecil.
 
-2. [Tuliskan kembali pertanyaan 2 dari panduan]  
-   **Jawaban:** …  
+2. [Kapan functional programming lebih cocok digunakan
+ dibanding OOP atau prosedural? ]  
+   **Jawaban:** … Saat butuh pemrosesan data, paralelisme, dan kode ringkas (mis. map/filter/reduce).
 
-3. [Tuliskan kembali pertanyaan 3 dari panduan]  
-   **Jawaban:** …  )
+3. [Bagaimana paradigma (prosedural, OOP, fungsional) 
+memengaruhi maintainability dan scalability aplikasi? ]  
+   **Jawaban:** … Prosedural sulit dikelola saat besar, OOP lebih terstruktur dan scalable, fungsional ringkas, reusable, dan cocok untuk sistem paralel.
+
+4. [MengapaOOP lebih cocok untuk mengembangkan
+ aplikasi POS dibanding prosedural? ]  
+   **Jawaban:** … Karena POS punya banyak entitas (produk, transaksi, pelanggan) yang lebih mudah dimodelkan dengan class dan object.
+
+5. [Bagaimana paradigma fungsional dapat membantu
+ mengurangi kode berulang (boilerplate code)? ]  
+   **Jawaban:** … Dengan fungsi murni dan higher-order function, logika bisa dipakai ulang tanpa banyak kode berulang.
