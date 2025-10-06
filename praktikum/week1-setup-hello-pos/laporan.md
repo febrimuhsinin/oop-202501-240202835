@@ -53,7 +53,7 @@ public class HelloProcedural {
       String nama = "HANDIKA DWI ARDIYANTO";
 
       System.out.println("hello word, im " + nama +"-"+ nim );
-   }
+  ** }
 }
 2. OOP
 // HelloOOP.java
@@ -75,7 +75,7 @@ public class HelloFunctional {
  }
 }
 )
----
+---**
 
 ## Hasil Eksekusi
 (Sertakan screenshot hasil eksekusi program.  
