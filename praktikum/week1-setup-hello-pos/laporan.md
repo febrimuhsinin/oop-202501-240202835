@@ -87,9 +87,15 @@ public class HelloFunctional {
 
 ## Hasil Eksekusi
 (Sertakan screenshot hasil eksekusi program.  
-1. Procedural![Screenshot hasil](screenshots/Screenshot 2025-10-01 212130.png)
-2. OOP![Screenshot hasil](screenshots/Screenshot 2025-10-01 212617.png)
-3. Functional![Screenshot hasil](screenshots/Screenshot 2025-10-01 215457.png)
+1. Procedural
+   <img width="960" height="540" alt="Screenshot 2025-10-01 212130" src="https://github.com/user-attachments/assets/e6a66296-3b94-4425-8f34-4219eedf5600" />
+   
+2. OOP
+   <img width="960" height="540" alt="Screenshot 2025-10-01 212617" src="https://github.com/user-attachments/assets/918d6d1f-862a-42ef-b29f-f928782f3465" />
+
+4. Functional
+   <img width="960" height="540" alt="Screenshot 2025-10-01 215457" src="https://github.com/user-attachments/assets/91f88ee4-4670-4b3d-9b16-531a56f274b7" />
+
 )
 ---
 
@@ -111,24 +117,25 @@ public class HelloFunctional {
 
 ## Quiz
 1. [Apakah OOP selalu lebih baik dari prosedural? ]  
-   **Jawaban:** … Tidak selalu. OOP bagus untuk aplikasi besar, prosedural lebih simpel untuk program kecil.
+   **Jawaban:** …
+   Tidak selalu. OOP bagus untuk aplikasi besar, prosedural lebih simpel untuk program kecil.
 
-2. [Kapan functional programming lebih cocok digunakan
+3. [Kapan functional programming lebih cocok digunakan
  dibanding OOP atau prosedural? ]  
    **Jawaban:** … 
    Saat butuh pemrosesan data, paralelisme, dan kode ringkas (mis. map/filter/reduce).
 
-3. [Bagaimana paradigma (prosedural, OOP, fungsional) 
+4. [Bagaimana paradigma (prosedural, OOP, fungsional) 
 memengaruhi maintainability dan scalability aplikasi? ]  
    **Jawaban:** … 
    Prosedural sulit dikelola saat besar, OOP lebih terstruktur dan scalable, fungsional ringkas, reusable, dan cocok untuk sistem paralel.
 
-4. [MengapaOOP lebih cocok untuk mengembangkan
+5. [MengapaOOP lebih cocok untuk mengembangkan
  aplikasi POS dibanding prosedural? ]  
    **Jawaban:** … 
    Karena POS punya banyak entitas (produk, transaksi, pelanggan) yang lebih mudah dimodelkan dengan class dan object.
 
-5. [Bagaimana paradigma fungsional dapat membantu
+6. [Bagaimana paradigma fungsional dapat membantu
  mengurangi kode berulang (boilerplate code)? ]  
    **Jawaban:** … 
    Dengan fungsi murni dan higher-order function, logika bisa dipakai ulang tanpa banyak kode berulang.
