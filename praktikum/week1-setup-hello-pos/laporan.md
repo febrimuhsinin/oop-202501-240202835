@@ -85,13 +85,10 @@ public class HelloFunctional {
 ## Hasil Eksekusi
 (Sertakan screenshot hasil eksekusi program.  
 1. Procedural
-   <img width="960" height="540" alt="Screenshot 2025-10-01 212130" src="https://github.com/user-attachments/assets/e6a66296-3b94-4425-8f34-4219eedf5600" />
-   
+ 
 2. OOP
-   <img width="960" height="540" alt="Screenshot 2025-10-01 212617" src="https://github.com/user-attachments/assets/918d6d1f-862a-42ef-b29f-f928782f3465" />
 
 4. Functional
-   <img width="960" height="540" alt="Screenshot 2025-10-01 215457" src="https://github.com/user-attachments/assets/91f88ee4-4670-4b3d-9b16-531a56f274b7" />
 
 )
 ---
