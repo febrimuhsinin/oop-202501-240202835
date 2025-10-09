@@ -42,7 +42,6 @@ Topik: [Paradigma Pemrograman (Prosedural, OOP, dan Fungsional)"]
 ## Kode Program
 1. Procedural
 ```java
-// Contoh
 public class HelloProcedural {
    public static void main(String[] args) {
       String nim = "240202835";
@@ -54,7 +53,6 @@ public class HelloProcedural {
 ```
 2. OOP
 ```java
-// Contoh
 public class HelloProcedural {
  class Mahasiswa { 
 String nama; int nim; 
@@ -70,7 +68,6 @@ m.sapa();
 ```
 1. Functional
 ```java
-// Contoh
 import java.util.function.BiConsumer;
 
 public class HelloFunctional {
@@ -87,9 +84,12 @@ public class HelloFunctional {
 
 ## Hasil Eksekusi
 (Sertakan screenshot hasil eksekusi program.  
-1. Procedural![Screenshot hasil](screenshots/Screenshot 2025-10-01 212130.png)
-2. OOP![Screenshot hasil](screenshots/Screenshot 2025-10-01 212617.png)
-3. Functional![Screenshot hasil](screenshots/Screenshot 2025-10-01 215457.png)
+1. Procedural
+![alt text](<Screenshot 2025-10-01 212130.png>)
+2. OOP
+![alt text](<Screenshot 2025-10-01 212130-1.png>)
+3. Functional
+![alt text](<Screenshot 2025-10-01 215457.png>)
 )
 ---
 
