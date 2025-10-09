@@ -148,7 +148,7 @@ public class MainProduk {
 
 ## Hasil Eksekusi
 ( 
-![alt text](<Screenshot 2025-10-09 203516.png>)
+![Screenshot hasil](screenshot/Screenshot 2025-10-09 203516.png)
 )
 ---
 
@@ -179,4 +179,5 @@ Penggunaan enkapsulasi menjaga keamanan data, dan konsep ini menjadi dasar penti
 
 3. [Bagaimana cara class Produk mendukung pengembangan aplikasi POS yang lebih kompleks?]  
    **Jawaban:** …  
-   Dengan membuat class Produk, setiap produk memiliki struktur dan perilaku yang sama sehingga mudah dikelola, ditambahkan fitur baru (seperti perhitungan diskon, laporan stok, dan integrasi database), tanpa mengubah logika utama aplikasi.)
+   Dengan membuat class Produk, setiap produk memiliki struktur dan perilaku yang sama sehingga mudah dikelola, ditambahkan fitur baru (seperti perhitungan diskon, laporan stok, dan integrasi database), tanpa mengubah logika utama aplikasi.
+   )
