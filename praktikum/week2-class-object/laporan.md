@@ -43,8 +43,13 @@ System.out.println(p1.getNama());
 ---
 
 ## Hasil Eksekusi
+<<<<<<< HEAD
 (Sertakan screenshot hasil eksekusi program.  
 ![Screenshot hasil](screenshots/hasil.png)
+=======
+( 
+![Screenshot hasil](screenshot/Screenshot 2025-10-09 203516.png)
+>>>>>>> f671f1a (upload tugas)
 )
 ---
 
@@ -69,5 +74,12 @@ Contoh: *Dengan menggunakan class dan object, program menjadi lebih terstruktur 
 2. [Tuliskan kembali pertanyaan 2 dari panduan]  
    **Jawaban:** …  
 
+<<<<<<< HEAD
 3. [Tuliskan kembali pertanyaan 3 dari panduan]  
    **Jawaban:** …  )
+=======
+3. [Bagaimana cara class Produk mendukung pengembangan aplikasi POS yang lebih kompleks?]  
+   **Jawaban:** …  
+   Dengan membuat class Produk, setiap produk memiliki struktur dan perilaku yang sama sehingga mudah dikelola, ditambahkan fitur baru (seperti perhitungan diskon, laporan stok, dan integrasi database), tanpa mengubah logika utama aplikasi.
+   )
+>>>>>>> f671f1a (upload tugas)

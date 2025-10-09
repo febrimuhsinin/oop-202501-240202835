@@ -3,6 +3,6 @@ public class HelloProcedural {
       String nim = "240202835";
       String nama = "Febri Muhsinin";
 
-      System.out.println("Total harga semua produk: " + nama + "-" + nim);
+      System.out.println("Hello word, i am " + nama + "-" + nim);
    }
 }

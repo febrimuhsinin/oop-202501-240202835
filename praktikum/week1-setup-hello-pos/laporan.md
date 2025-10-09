@@ -47,13 +47,12 @@ public class HelloProcedural {
       String nim = "240202835";
       String nama = "Febri Muhsinin";
 
-      System.out.println("Total harga semua produk: " + nama+"-"+ nim);
+      System.out.println("Hello word, i am " + nama + "-" + nim);
    }
 }
 ```
 2. OOP
 ```java
-public class HelloProcedural {
  class Mahasiswa { 
 String nama; int nim; 
 Mahasiswa(String n, int u){ nama=n; nim=u; } 
@@ -72,12 +71,12 @@ import java.util.function.BiConsumer;
 
 public class HelloFunctional {
     public static void main(String[] args) {
-        BiConsumer<String,Integer> sapa =
-            (nama, nim) -> System.out.println("Hello word, i am " + nama +"-"+nim);
+        BiConsumer<String, Integer> sapa = (nama, nim) -> System.out.println("Hello word, i am " + nama + "-" + nim);
 
         sapa.accept("Febri Muhsinin", 240202835);
     }
 }
+
 ```
 
 ---
@@ -85,13 +84,12 @@ public class HelloFunctional {
 ## Hasil Eksekusi
 (Sertakan screenshot hasil eksekusi program.  
 1. Procedural
- 
+![Screenshot hasil](screenshots/Screenshot 2025-10-01 212130.png)
 2. OOP
-
-4. Functional
-
+![Screenshot hasil](screenshots/Screenshot 2025-10-01 212617.png)
+3. Functional
+![Screenshot hasil](screenshots/Screenshot 2025-10-01 215457.png)
 )
----
 
 ## Analisis
 (
