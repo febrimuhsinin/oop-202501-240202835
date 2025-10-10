@@ -1,5 +1,5 @@
 # Laporan Praktikum Minggu 1 (sesuaikan minggu ke berapa?)
-Topik: [Tuliskan judul topik, misalnya "Class dan Object"]
+Topik: [Class dan Object (Produk Pertanian)]
 
 ## Identitas
 - Nama  : [Febri Muhsinin]
@@ -20,8 +20,7 @@ Topik: [Tuliskan judul topik, misalnya "Class dan Object"]
 ---
 
 ## Dasar Teori
-(Tuliskan ringkasan teori singkat (3–5 poin) yang mendasari praktikum.  
-Contoh:  
+(
 1. Class adalah blueprint (cetak biru) dari objek yang berisi definisi atribut dan method.
 Misalnya, class Produk berisi atribut seperti nama, harga, dan stok.
 2. Object adalah hasil nyata (instansiasi) dari class yang dapat digunakan di program.
@@ -189,6 +188,6 @@ Penggunaan enkapsulasi menjaga keamanan data, dan konsep ini menjadi dasar penti
    **Jawaban:** … 
    Getter digunakan untuk mengambil nilai dari atribut private, sedangkan setter digunakan untuk mengubah nilainya secara terkontrol. 
 
-2. [Bagaimana cara class Produk mendukung pengembangan aplikasi POS yang lebih kompleks?]  
+3. [Bagaimana cara class Produk mendukung pengembangan aplikasi POS yang lebih kompleks?]  
    **Jawaban:** …  
     Dengan membuat class Produk yang terstruktur, pengembang dapat dengan mudah menambahkan fitur baru seperti perhitungan harga, manajemen stok otomatis, atau integrasi dengan database tanpa mengubah logika utama program.
