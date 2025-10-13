@@ -155,7 +155,7 @@ public class MainProduk {
 
 ## Hasil Eksekusi
   
-![Screenshot hasil](screenshots/Screenshot 2025-10-09 203516.png)
+![Screenshot hasil](/praktikum/week2-class-object/screenshots/Screenshot%202025-10-09%20203516.png)
 
 ---
 

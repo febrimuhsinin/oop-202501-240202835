@@ -84,11 +84,11 @@ public class HelloFunctional {
 ## Hasil Eksekusi
 (Sertakan screenshot hasil eksekusi program.  
 1. Procedural
-![Screenshot hasil](screenshots/Screenshot 2025-10-01 212130.png)
+![Screenshot hasil](/praktikum/week1-setup-hello-pos/screenshots/Screenshot%202025-10-01%20212130.png)
 2. OOP
-![Screenshot hasil](screenshots/Screenshot 2025-10-01 212617.png)
+![Screenshot hasil](/praktikum/week1-setup-hello-pos/screenshots/Screenshot%202025-10-01%20212617.png)
 3. Functional
-![Screenshot hasil](screenshots/Screenshot 2025-10-01 215457.png)
+![Screenshot hasil](/praktikum/week1-setup-hello-pos/screenshots/Screenshot%202025-10-01%20215457.png)
 )
 
 ## Analisis
