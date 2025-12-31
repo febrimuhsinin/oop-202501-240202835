@@ -1,73 +1,312 @@
-# Laporan Praktikum Minggu 1 (sesuaikan minggu ke berapa?)
-Topik: [Tuliskan judul topik, misalnya "Class dan Object"]
+# Laporan Praktikum Minggu 7 
+Topik: [Collections dan Implementasi Keranjang Belanja]
 
 ## Identitas
-- Nama  : [Nama Mahasiswa]
-- NIM   : [NIM Mahasiswa]
-- Kelas : [Kelas]
+- Nama  : [Febri Muhsinin]
+- NIM   : [240202835]
+- Kelas : [3IKRA]
 
 ---
 
 ## Tujuan
-(Tuliskan tujuan praktikum minggu ini.  
-Contoh: *Mahasiswa memahami konsep class dan object serta dapat membuat class Produk dengan enkapsulasi.*)
+1. Mengenal konsep collection dalam Java (List, Map, Set).
+
+2. Mengimplementasikan ArrayList untuk menyimpan objek produk secara dinamis.
+
+3. Menggunakan HashMap untuk menangani kuantitas produk dalam keranjang belanja.
+
+4. Menganalisis efisiensi penggunaan struktur data dalam aplikasi POS.
 
 ---
 
 ## Dasar Teori
-(Tuliskan ringkasan teori singkat (3–5 poin) yang mendasari praktikum.  
-Contoh:  
-1. Class adalah blueprint dari objek.  
-2. Object adalah instansiasi dari class.  
-3. Enkapsulasi digunakan untuk menyembunyikan data.)
+1. List (ArrayList): Struktur data terurut yang mengizinkan elemen duplikat. Berguna untuk mencatat urutan transaksi item per item.
+
+2. Map (HashMap): Menyimpan data dalam pasangan key-value. Sangat efektif untuk sistem POS yang membutuhkan akumulasi jumlah (quantity) barang yang sama.
+
+3. Set (HashSet): Struktur data yang menjamin keunikan elemen (tidak ada duplikat).
 
 ---
 
 ## Langkah Praktikum
-(Tuliskan Langkah-langkah dalam prakrikum, contoh:
-1. Langkah-langkah yang dilakukan (setup, coding, run).  
-2. File/kode yang dibuat.  
-3. Commit message yang digunakan.)
+1. Membuat direktori kerja di praktikum/week7-collections/.
+
+2. Membuat kelas Product sebagai entitas dasar barang pertanian.
+
+3. Mengimplementasikan ShoppingCart dengan ArrayList untuk operasi tambah dan hapus sederhana.
+
+4. Mengimplementasikan ShoppingCartMap untuk menangani logika quantity menggunakan HashMap.
+
+5. Menjalankan MainCart untuk memverifikasi fungsionalitas keranjang belanja.
 
 ---
 
-## Kode Program
-(Tuliskan kode utama yang dibuat, contoh:  
-
+## Kode Program 
+A. Product.java
 ```java
-// Contoh
-Produk p1 = new Produk("BNH-001", "Benih Padi", 25000, 100);
-System.out.println(p1.getNama());
+package com.upb.agripos;
+
+public class Product {
+    private final String code;
+    private final String name;
+    private final double price;
+
+    public Product(String code, String name, double price) {
+        this.code = code;
+        this.name = name;
+        this.price = price;
+    }
+
+    public String getCode() { return code; }
+    public String getName() { return name; }
+    public double getPrice() { return price; }
+
+    // Override untuk mendukung penggunaan HashMap secara akurat
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Product product = (Product) o;
+        return code.equals(product.code);
+    }
+
+    @Override
+    public int hashCode() {
+        return code.hashCode();
+    }
+}
 ```
-)
+B. ShoppingCart.java (Versi ArrayList)
+```java
+package com.upb.agripos;
+
+import java.util.ArrayList;
+
+public class ShoppingCart {
+    private final ArrayList<Product> items = new ArrayList<>();
+
+    public void addProduct(Product p) { items.add(p); }
+    public void removeProduct(Product p) { items.remove(p); }
+
+    public double getTotal() {
+        double sum = 0;
+        for (Product p : items) {
+            sum += p.getPrice();
+        }
+        return sum;
+    }
+
+    public void printCart() {
+        System.out.println("=== Isi Keranjang (ArrayList) ===");
+        for (Product p : items) {
+            System.out.println("- " + p.getCode() + " " + p.getName() + " = Rp" + p.getPrice());
+        }
+        System.out.println("Total: Rp" + getTotal());
+    }
+}
+```
+C. ShoppingCartMap.java (Versi HashMap dengan Quantity)
+```java
+package com.upb.agripos;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class ShoppingCartMap {
+    private final Map<Product, Integer> items = new HashMap<>();
+
+    public void addProduct(Product p) { 
+        items.put(p, items.getOrDefault(p, 0) + 1); 
+    }
+
+    public void removeProduct(Product p) {
+        if (!items.containsKey(p)) return;
+        int qty = items.get(p);
+        if (qty > 1) items.put(p, qty - 1);
+        else items.remove(p);
+    }
+
+    public double getTotal() {
+        double total = 0;
+        for (Map.Entry<Product, Integer> entry : items.entrySet()) {
+            total += entry.getKey().getPrice() * entry.getValue();
+        }
+        return total;
+    }
+
+    public void printCart() {
+        System.out.println("=== Isi Keranjang (Map dengan Quantity) ===");
+        for (Map.Entry<Product, Integer> e : items.entrySet()) {
+            System.out.println("- " + e.getKey().getCode() + " " + e.getKey().getName() + 
+                               " [" + e.getValue() + " pcs] = Rp" + (e.getKey().getPrice() * e.getValue()));
+        }
+        System.out.println("Total: Rp" + getTotal());
+    }
+}
+```
+Berikut adalah pengerjaan ulang seluruh komponen tugas praktikum Minggu 7 untuk repositori Agri-POS, lengkap dengan kode program dan draf laporan resmi.
+
+1. Kode Program (Source Code)
+Seluruh kode di bawah ini harus diletakkan pada paket com.upb.agripos sesuai struktur direktori yang diminta.
+
+A. Product.java
+Java
+
+package com.upb.agripos;
+
+public class Product {
+    private final String code;
+    private final String name;
+    private final double price;
+
+    public Product(String code, String name, double price) {
+        this.code = code;
+        this.name = name;
+        this.price = price;
+    }
+
+    public String getCode() { return code; }
+    public String getName() { return name; }
+    public double getPrice() { return price; }
+
+    // Override untuk mendukung penggunaan HashMap secara akurat
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Product product = (Product) o;
+        return code.equals(product.code);
+    }
+
+    @Override
+    public int hashCode() {
+        return code.hashCode();
+    }
+}
+B. ShoppingCart.java (Versi ArrayList)
+Java
+
+package com.upb.agripos;
+
+import java.util.ArrayList;
+
+public class ShoppingCart {
+    private final ArrayList<Product> items = new ArrayList<>();
+
+    public void addProduct(Product p) { items.add(p); }
+    public void removeProduct(Product p) { items.remove(p); }
+
+    public double getTotal() {
+        double sum = 0;
+        for (Product p : items) {
+            sum += p.getPrice();
+        }
+        return sum;
+    }
+
+    public void printCart() {
+        System.out.println("=== Isi Keranjang (ArrayList) ===");
+        for (Product p : items) {
+            System.out.println("- " + p.getCode() + " " + p.getName() + " = Rp" + p.getPrice());
+        }
+        System.out.println("Total: Rp" + getTotal());
+    }
+}
+C. ShoppingCartMap.java (Versi HashMap dengan Quantity)
+Java
+
+package com.upb.agripos;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class ShoppingCartMap {
+    private final Map<Product, Integer> items = new HashMap<>();
+
+    public void addProduct(Product p) { 
+        items.put(p, items.getOrDefault(p, 0) + 1); 
+    }
+
+    public void removeProduct(Product p) {
+        if (!items.containsKey(p)) return;
+        int qty = items.get(p);
+        if (qty > 1) items.put(p, qty - 1);
+        else items.remove(p);
+    }
+
+    public double getTotal() {
+        double total = 0;
+        for (Map.Entry<Product, Integer> entry : items.entrySet()) {
+            total += entry.getKey().getPrice() * entry.getValue();
+        }
+        return total;
+    }
+
+    public void printCart() {
+        System.out.println("=== Isi Keranjang (Map dengan Quantity) ===");
+        for (Map.Entry<Product, Integer> e : items.entrySet()) {
+            System.out.println("- " + e.getKey().getCode() + " " + e.getKey().getName() + 
+                               " [" + e.getValue() + " pcs] = Rp" + (e.getKey().getPrice() * e.getValue()));
+        }
+        System.out.println("Total: Rp" + getTotal());
+    }
+}
+D. MainCart.java
+```java
+package com.upb.agripos;
+
+public class MainCart {
+    public static void main(String[] args) {
+        // Menggunakan identitas Febri Muhsinin - 240202835
+        System.out.println("Hello, I am Febri Muhsinin-240202835 (Week7)");
+
+        Product p1 = new Product("P01", "Beras Rojolele", 50000);
+        Product p2 = new Product("P02", "Pupuk NPK 1kg", 30000);
+
+        // Uji coba ArrayList
+        System.out.println("\n[Testing ArrayList Implementation]");
+        ShoppingCart cart = new ShoppingCart();
+        cart.addProduct(p1);
+        cart.addProduct(p2);
+        cart.printCart();
+        cart.removeProduct(p1);
+        cart.printCart();
+
+        // Uji coba Map (Quantity)
+        System.out.println("\n[Testing Map Implementation]");
+        ShoppingCartMap mapCart = new ShoppingCartMap();
+        mapCart.addProduct(p1);
+        mapCart.addProduct(p1); // Tambah item yang sama
+        mapCart.addProduct(p2);
+        mapCart.printCart();
+    }
+}
+```
 ---
 
 ## Hasil Eksekusi
-(Sertakan screenshot hasil eksekusi program.  
-![Screenshot hasil](screenshots/hasil.png)
-)
+
+![Screenshot hasil](/praktikum/week7-koleksi-keranjang/screenshots/Screenshot%202025-12-31%20160556.png)
+
 ---
 
 ## Analisis
-(
-- Jelaskan bagaimana kode berjalan.  
-- Apa perbedaan pendekatan minggu ini dibanding minggu sebelumnya.  
-- Kendala yang dihadapi dan cara mengatasinya.  
-)
+- ArrayList: Cocok digunakan ketika urutan penambahan produk sangat penting dan kita tidak keberatan jika ada objek yang sama muncul berkali-kali dalam list. Namun, untuk menghitung total dengan jumlah barang yang banyak, List akan menjadi panjang dan kurang efisien dalam representasi data.
+
+- HashMap: Lebih efisien untuk sistem POS karena jika pengguna membeli 5 beras, sistem hanya menyimpan 1 kunci "Beras" dengan nilai kuantitas 5, alih-alih menyimpan 5 objek "Beras" yang identik. 
+
 ---
 
 ## Kesimpulan
-(Tuliskan kesimpulan dari praktikum minggu ini.  
-Contoh: *Dengan menggunakan class dan object, program menjadi lebih terstruktur dan mudah dikembangkan.*)
+Penggunaan Java Collections memungkinkan sistem Agri-POS mengelola data belanja secara dinamis tanpa batasan ukuran array statis. Pemilihan antara List dan Map bergantung pada kebutuhan bisnis; Map lebih unggul dalam menangani kuantitas barang secara ringkas.
 
 ---
 
 ## Quiz
-(1. [Tuliskan kembali pertanyaan 1 dari panduan]  
-   **Jawaban:** …  
+1. Perbedaan List, Map, Set: List terurut dan boleh duplikat; Map berbasis pasangan kunci-nilai; Set unik dan tidak terurut.
 
-2. [Tuliskan kembali pertanyaan 2 dari panduan]  
-   **Jawaban:** …  
+2. ArrayList untuk Keranjang: Karena ArrayList mempertahankan urutan penambahan produk (insertion order) dan mudah diakses menggunakan perulangan (for-each).
 
-3. [Tuliskan kembali pertanyaan 3 dari panduan]  
-   **Jawaban:** …  )
+3. Set mencegah duplikasi: Set menggunakan mekanisme hashCode() dan equals() untuk mengecek apakah objek sudah ada sebelum dimasukkan.
+
+4. Kapan menggunakan Map: Saat kita butuh fitur kuantitas atau pencarian cepat berdasarkan kunci tertentu. Contoh: Menghitung jumlah stok per kategori produk.
