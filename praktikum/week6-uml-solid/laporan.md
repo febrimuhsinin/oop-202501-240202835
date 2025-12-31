@@ -43,7 +43,7 @@ Topik: [Desain Arsitektur Sistem dengan UML dan Prinsip SOLID]
 
 ## Sistem Agri-POS
 1. Use Case Diagram
-![Screenshot hasil](/oop-202501-240202835/praktikum/week6-uml-solid/screenshots/uml_usecase.jpeg)
+![Screenshot hasil](/praktikum/week6-uml-solid/screenshots/uml_usecase.jpeg)
 
 Diagram ini mendefinisikan siapa saja aktor yang berinteraksi dengan sistem dan apa saja fungsionalitas yang mereka miliki.
 
@@ -56,7 +56,7 @@ Diagram ini mendefinisikan siapa saja aktor yang berinteraksi dengan sistem dan 
 4. Relasi Include: Use case "Transaksi Penjualan" secara otomatis mencakup (include) proses Pilih Metode Pembayaran dan Cetak Struk.
 
 2. Activity Diagram (Proses Checkout)
-![Screenshot hasil](/oop-202501-240202835/praktikum/week6-uml-solid/screenshots/uml_activity.jpeg)
+![Screenshot hasil](/praktikum/week6-uml-solid/screenshots/uml_activity.jpeg)
 
 Diagram ini menggambarkan alur kerja langkah-demi-langkah dari proses utama penjualan.
 
@@ -73,7 +73,7 @@ Diagram ini menggambarkan alur kerja langkah-demi-langkah dari proses utama penj
 - Penyelesaian: Jika pembayaran berhasil, sistem akan Update Stok, Generate Invoice, dan Cetak Struk. Jika gagal, sistem menampilkan pesan gagal.
 
 3. Sequence Diagram (Proses Pembayaran)
-![Screenshot hasil](/oop-202501-240202835/praktikum/week6-uml-solid/screenshots/uml_sequence.jpeg)
+![Screenshot hasil](/praktikum/week6-uml-solid/screenshots/uml_sequence.jpeg)
 
 Diagram ini menunjukkan interaksi antar objek secara kronologis untuk menjalankan fungsi pembayaran.
 
@@ -90,7 +90,7 @@ Diagram ini menunjukkan interaksi antar objek secara kronologis untuk menjalanka
    - Jika sukses, sistem memanggil cetakStruk() pada objek yang mengimplementasikan Receiptable untuk ditampilkan kepada Kasir.
 
 4. Class Diagram
-![Screenshot hasil](/oop-202501-240202835/praktikum/week6-uml-solid/screenshots/uml_class.jpeg)
+![Screenshot hasil](/praktikum/week6-uml-solid/screenshots/uml_class.jpeg)
 
 Diagram ini menjelaskan struktur statis, paket, dan hubungan antar kelas dalam kode program Anda.
 
