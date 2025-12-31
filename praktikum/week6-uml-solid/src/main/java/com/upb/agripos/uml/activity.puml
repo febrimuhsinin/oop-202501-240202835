@@ -1,0 +1,34 @@
+@startuml
+|Kasir|
+start
+:Input Produk & Jumlah;
+|Sistem|
+:Cek Stok Produk;
+if (Stok Mencukupi?) then (Ya)
+  :Hitung Total Belanja;
+  |Kasir|
+  :Pilih Metode Pembayaran;
+  |Sistem|
+  if (Metode == E-Wallet/Transfer) then (Validasi OTP/PIN)
+    :Proses Validasi;
+  else (Tunai)
+    :Cek Kecukupan Uang;
+  endif
+  
+  if (Pembayaran Berhasil?) then (Ya)
+    :Update Stok;
+    :Generate Invoice;
+    |Sistem|
+    :Cetak Struk;
+    stop
+  else (Gagal)
+    |Kasir|
+    :Tampilkan Pesan Gagal;
+    end
+  endif
+else (Tidak)
+  |Kasir|
+  :Peringatan Stok Habis;
+  end
+endif
+@enduml

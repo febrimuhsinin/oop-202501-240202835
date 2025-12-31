@@ -1,0 +1,23 @@
+@startuml
+left to right direction
+actor "Kasir" as K
+actor "Admin" as A
+
+rectangle "Sistem Agri-POS" {
+  usecase "Login" as UC1
+  usecase "Kelola Produk (CRUD)" as UC2
+  usecase "Transaksi Penjualan (Checkout)" as UC3
+  usecase "Pilih Metode Pembayaran" as UC4
+  usecase "Cetak Struk" as UC5
+  usecase "Lihat Laporan Penjualan" as UC6
+}
+
+K --> UC1
+K --> UC3
+UC3 ..> UC4 : <<include>>
+UC3 ..> UC5 : <<include>>
+
+A --> UC1
+A --> UC2
+A --> UC6
+@enduml

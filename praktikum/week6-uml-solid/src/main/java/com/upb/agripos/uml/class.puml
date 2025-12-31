@@ -1,0 +1,58 @@
+@startuml
+package "com.upb.agripos.model" {
+    abstract class Produk {
+        - String kode
+        - String nama
+        - double harga
+        - int stok
+        + getInfo(): String
+        + tambahStok(int)
+    }
+
+    class Benih extends Produk {
+        - String varietas
+        + getInfo(): String
+    }
+
+    class Pupuk extends Produk {
+        - String jenis
+        + getInfo(): String
+    }
+
+    abstract class Pembayaran {
+        # String invoiceNo
+        # double total
+        + {abstract} biaya(): double
+        + {abstract} prosesPembayaran(): boolean
+        + totalBayar(): double
+    }
+
+    class Cash extends Pembayaran implements Receiptable {
+        - double tunai
+    }
+
+    class EWallet extends Pembayaran implements Validatable, Receiptable {
+        - String akun
+        - String otp
+    }
+}
+
+package "com.upb.agripos.kontrak" {
+    interface Validatable {
+        + validasi(): boolean
+    }
+    interface Receiptable {
+        + cetakStruk(): String
+    }
+}
+
+package "com.upb.agripos.service" {
+    class PaymentService {
+        + execute(Pembayaran p)
+    }
+}
+
+Pembayaran ..> Validatable : <<use>>
+Pembayaran ..> Receiptable : <<use>>
+PaymentService --> Pembayaran : Dependency Inversion
+@enduml

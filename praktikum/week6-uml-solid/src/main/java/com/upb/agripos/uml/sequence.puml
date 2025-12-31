@@ -1,0 +1,34 @@
+@startuml
+actor Kasir
+participant "PaymentService" as Service
+participant "p:Pembayaran" as P
+participant "Validatable" as V
+participant "Receiptable" as R
+
+Kasir -> Service : prosesTransaksi(pembayaran)
+activate Service
+
+alt Jika Pembayaran butuh validasi (EWallet/Transfer)
+    Service -> V : validasi()
+    activate V
+    V --> Service : statusValidasi
+    deactivate V
+end
+
+Service -> P : prosesPembayaran()
+activate P
+P --> Service : success/fail
+deactivate P
+
+alt success
+    Service -> R : cetakStruk()
+    activate R
+    R --> Service : stringStruk
+    deactivate R
+    Service --> Kasir : Tampilkan Struk
+else fail
+    Service --> Kasir : Notifikasi Gagal
+end
+
+deactivate Service
+@enduml
