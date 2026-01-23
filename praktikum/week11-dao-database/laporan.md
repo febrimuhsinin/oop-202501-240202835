@@ -2,9 +2,9 @@
 Topik: Data Access Object (DAO) dan CRUD Database dengan JDBC
 
 ## Identitas
-- Nama  : [Nama Mahasiswa]
-- NIM   : [NIM Mahasiswa]
-- Kelas : [Kelas]
+- Nama  : [Febri Muhsinin]
+- NIM   : [240202835]
+- Kelas : [3IKRA]
 
 ---
 

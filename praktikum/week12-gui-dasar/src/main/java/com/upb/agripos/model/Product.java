@@ -1,8 +1,7 @@
 package com.upb.agripos.model;
 
 public class Product {
-    private String code;
-    private String name;
+    private String code, name;
     private double price;
     private int stock;
 
@@ -12,14 +11,9 @@ public class Product {
         this.price = price;
         this.stock = stock;
     }
-
-    // Getters and Setters
+    // Getters
     public String getCode() { return code; }
     public String getName() { return name; }
     public double getPrice() { return price; }
     public int getStock() { return stock; }
-
-    public void setName(String name) { this.name = name; }
-    public void setPrice(double price) { this.price = price; }
-    public void setStock(int stock) { this.stock = stock; }
 }
