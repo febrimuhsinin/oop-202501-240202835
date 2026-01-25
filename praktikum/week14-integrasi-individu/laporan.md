@@ -51,7 +51,6 @@ Berikut adalah pemetaan desain sistem terhadap kode yang telah diimplementasikan
 | **Sequence Diagram** | SD-01 Simpan Data | Event Klik Tombol Simpan | View memanggil Controller → Service memvalidasi → DAO eksekusi SQL | `PreparedStatement` | Alur eksekusi kode sesuai dengan urutan pesan pada diagram. |
 | **Class Diagram** | Relasi Agregasi (Cart) | Kelas `Cart` & `CartItem` | `CartService` mengelola `List<CartItem>` | - | Implementasi sesuai struktur kelas: 1 Keranjang memiliki banyak Item. |
 
-```
 
 ## 5. Hasil Eksekusi & Screenshot
 
