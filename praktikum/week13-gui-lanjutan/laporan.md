@@ -1,5 +1,5 @@
-# Laporan Praktikum Minggu 1 (sesuaikan minggu ke berapa?)
-Topik: [Tuliskan judul topik, misalnya "Class dan Object"]
+# Laporan Praktikum Minggu 13
+Topik: GUI Lanjutan JavaFX (TableView dan Lambda Expression)
 
 ## Identitas
 - Nama  : Febri Muhsinin
@@ -349,38 +349,6 @@ public class AppJavaFX extends Application {
 ![Screenshot hasil](/praktikum/week13-gui-lanjutan/screenshots/week%2013.png)
 
 ---
-
-## Analisis
-(
-- Jelaskan bagaimana kode berjalan.  
-- Apa perbedaan pendekatan minggu ini dibanding minggu sebelumnya.  
-- Kendala yang dihadapi dan cara mengatasinya.  
-)
----
-
-## Kesimpulan
-(Tuliskan kesimpulan dari praktikum minggu ini.  
-Contoh: *Dengan menggunakan class dan object, program menjadi lebih terstruktur dan mudah dikembangkan.*)
-
----
-
-## Quiz
-(1. [Tuliskan kembali pertanyaan 1 dari panduan]  
-   **Jawaban:** …  
-
-2. [Tuliskan kembali pertanyaan 2 dari panduan]  
-   **Jawaban:** …  
-
-3. [Tuliskan kembali pertanyaan 3 dari panduan]  
-   **Jawaban:** …  )
-
-Tentu, ini adalah draf lengkap **Laporan Praktikum Minggu 13** yang disusun berdasarkan kode yang telah kita bahas (implementasi `TableView`, `Lambda Expression`, dan fitur `Delete`).
-
-Laporan ini dirancang agar sinkron dengan struktur laporan Minggu 12 sebelumnya dan memenuhi persyaratan integrasi **Bab 6**.
-
----
-
-
 
 ## Analisis 
 

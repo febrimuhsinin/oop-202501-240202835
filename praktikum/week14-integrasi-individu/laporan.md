@@ -1,73 +1,86 @@
-# Laporan Praktikum Minggu 1 (sesuaikan minggu ke berapa?)
-Topik: [Tuliskan judul topik, misalnya "Class dan Object"]
+# Laporan Praktikum Minggu 14
+Topik: Integrasi Individu (OOP + Database + GUI)
 
 ## Identitas
-- Nama  : [Nama Mahasiswa]
-- NIM   : [NIM Mahasiswa]
-- Kelas : [Kelas]
+- Nama  : Febri Muhsinin
+- NIM   : 240202835
+- Kelas : 3IKRA
 
----
+## 1. Ringkasan Aplikasi
 
-## Tujuan
-(Tuliskan tujuan praktikum minggu ini.  
-Contoh: *Mahasiswa memahami konsep class dan object serta dapat membuat class Produk dengan enkapsulasi.*)
+**Agri-POS** adalah aplikasi Point of Sales (Kasir) sederhana untuk toko pertanian. Aplikasi ini dibangun menggunakan JavaFX dengan arsitektur MVC (Model-View-Controller) yang memisahkan logika tampilan, bisnis, dan akses data.
 
----
+**Fitur Utama:**
 
-## Dasar Teori
-(Tuliskan ringkasan teori singkat (3–5 poin) yang mendasari praktikum.  
-Contoh:  
-1. Class adalah blueprint dari objek.  
-2. Object adalah instansiasi dari class.  
-3. Enkapsulasi digunakan untuk menyembunyikan data.)
+1. **Manajemen Produk (CRUD Database):** Pengguna dapat melihat, menambah, dan menghapus data produk yang tersimpan permanen di database PostgreSQL.
+2. **Keranjang Belanja (Collections):** Pengguna dapat memilih produk dari tabel inventory dan memasukkannya ke keranjang belanja sementara (in-memory).
+3. **Kalkulasi Total:** Total harga belanja dihitung secara otomatis menggunakan logika bisnis di layer Service.
 
----
+## 2. Keterangan Integrasi Bab 1–13
 
-## Langkah Praktikum
-(Tuliskan Langkah-langkah dalam prakrikum, contoh:
-1. Langkah-langkah yang dilakukan (setup, coding, run).  
-2. File/kode yang dibuat.  
-3. Commit message yang digunakan.)
+Aplikasi ini menggabungkan materi dari seluruh semester:
 
----
+* **Bab 1-5 (OOP):** Penggunaan Class `Product`, `CartItem`, Encapsulation (getter/setter).
+* **Bab 6 (UML & SOLID):** Struktur kode mengikuti prinsip *Single Responsibility* (DAO hanya urus DB, View hanya urus UI).
+* **Bab 7 (Collections):** Penggunaan `List<CartItem>` dan `ObservableList` untuk menampung data keranjang.
+* **Bab 9 (Exception Handling):** Validasi input (misal: harga negatif) dan penanganan error koneksi database menggunakan `try-catch`.
+* **Bab 10 (Pattern & Testing):** Penerapan **Singleton Pattern** pada `ProductService` dan **Unit Testing** pada `CartServiceTest`.
+* **Bab 11 (JDBC & DAO):** Akses data PostgreSQL melalui `JdbcProductDAO`.
+* **Bab 12-13 (GUI JavaFX):** Tampilan interaktif menggunakan `TableView`, `ListView`, dan Lambda Expressions.
 
-## Kode Program
-(Tuliskan kode utama yang dibuat, contoh:  
+## 3. Implementasi Traceability (Bab 6 → Kode)
 
-```java
-// Contoh
-Produk p1 = new Produk("BNH-001", "Benih Padi", 25000, 100);
-System.out.println(p1.getNama());
+Berikut adalah pemetaan desain sistem terhadap kode yang telah diimplementasikan:
+
+| Fitur / Use Case | Komponen GUI (View) | Controller / Service | DAO / Data Access | Dampak Sistem |
+| --- | --- | --- | --- | --- |
+| **Tambah Produk** | Tombol `Tambah ke DB` | `PosController.addProductToDb()` → `ProductService.addProduct()` | `JdbcProductDAO.insert()` | Data tersimpan permanen di tabel `products` PostgreSQL. |
+| **Hapus Produk** | Tombol `Hapus dari DB` | `PosController.deleteProduct()` → `ProductService.deleteProduct()` | `JdbcProductDAO.delete()` | Baris data hilang dari database dan TableView diperbarui. |
+| **Lihat Daftar** | `TableView<Product>` | `PosController.loadProducts()` → `ProductService.getAllProducts()` | `JdbcProductDAO.findAll()` | Data dari database ditampilkan dalam bentuk tabel (Kode, Nama, Harga, Stok). |
+| **Tambah ke Keranjang** | Tombol `Masuk Keranjang >>` | `PosController.addToCart()` → `CartService.addToCart()` | - (Memory `List`) | Objek `CartItem` ditambahkan ke koleksi, List keranjang terupdate. |
+
+
+## 4. Tabel Traceability Bab 6 → Implementasi
+
+| Artefak Bab 6 | Referensi (ID/Nama) | Handler / Trigger (GUI) | Controller / Service Layer | DAO / Data Access | Dampak pada Sistem / DB |
+| --- | --- | --- | --- | --- | --- |
+| **Use Case** | UC-01 Tambah Produk | Tombol `Tambah ke DB` (`btnAdd`) | `PosController.addProductToDb()` → `ProductService.addProduct()` | `JdbcProductDAO.insert()` | Data produk baru tersimpan permanen di tabel PostgreSQL. |
+| **Use Case** | UC-02 Hapus Produk | Tombol `Hapus dari DB` (`btnDel`) | `PosController.deleteProduct()` → `ProductService.deleteProduct()` | `JdbcProductDAO.delete()` | Data produk terhapus dari PostgreSQL dan hilang dari TableView. |
+| **Use Case** | UC-03 Lihat Daftar | Inisialisasi Aplikasi / `refreshData()` | `PosController.loadProducts()` → `ProductService.getAllProducts()` | `JdbcProductDAO.findAll()` | Data diambil (`SELECT *`) dari DB dan ditampilkan di `TableView`. |
+| **Activity Diagram** | AD-01 Alur Keranjang | Tombol `Masuk Keranjang >>` (`btnToCart`) | `PosController.addToCart()` → `CartService.addToCart()` | - (Memory) | Objek `CartItem` masuk ke `List` sementara, total harga dihitung ulang. |
+| **Sequence Diagram** | SD-01 Simpan Data | Event Klik Tombol Simpan | View memanggil Controller → Service memvalidasi → DAO eksekusi SQL | `PreparedStatement` | Alur eksekusi kode sesuai dengan urutan pesan pada diagram. |
+| **Class Diagram** | Relasi Agregasi (Cart) | Kelas `Cart` & `CartItem` | `CartService` mengelola `List<CartItem>` | - | Implementasi sesuai struktur kelas: 1 Keranjang memiliki banyak Item. |
+
 ```
-)
----
 
-## Hasil Eksekusi
-(Sertakan screenshot hasil eksekusi program.  
-![Screenshot hasil](screenshots/hasil.png)
-)
----
+## 5. Hasil Eksekusi & Screenshot
 
-## Analisis
-(
-- Jelaskan bagaimana kode berjalan.  
-- Apa perbedaan pendekatan minggu ini dibanding minggu sebelumnya.  
-- Kendala yang dihadapi dan cara mengatasinya.  
-)
----
+**A. Tampilan Utama Aplikasi (`app_main.png`)**
+![Screenshot hasil](/praktikum/week14-integrasi-individu/screenshots/app_main.png)
 
-## Kesimpulan
-(Tuliskan kesimpulan dari praktikum minggu ini.  
-Contoh: *Dengan menggunakan class dan object, program menjadi lebih terstruktur dan mudah dikembangkan.*)
+
+**B. Hasil Unit Test (`junit_result.png`)**
+![Screenshot hasil](/praktikum/week14-integrasi-individu/screenshots/junit_result.png)
 
 ---
 
-## Quiz
-(1. [Tuliskan kembali pertanyaan 1 dari panduan]  
-   **Jawaban:** …  
+## 6. Kendala dan Solusi
 
-2. [Tuliskan kembali pertanyaan 2 dari panduan]  
-   **Jawaban:** …  
+Selama pengerjaan Week 14, terdapat beberapa kendala teknis:
 
-3. [Tuliskan kembali pertanyaan 3 dari panduan]  
-   **Jawaban:** …  )
+1. **Kendala:** `Error: JavaFX runtime components are missing` saat menjalankan aplikasi via tombol Run.
+* **Solusi:** Membuat kelas bantu `Launcher.java` yang memanggil `AppJavaFX.main()` untuk memanipulasi cara *classloader* memuat library JavaFX.
+
+
+2. **Kendala:** `NullPointerException: "this.dao is null"` saat menambah data.
+* **Solusi:** Ditemukan bahwa password database salah sehingga koneksi gagal saat inisialisasi. Solusinya adalah menyesuaikan password di `ProductService` dan menambahkan penanganan error (try-catch) agar aplikasi memberikan pesan jelas jika database gagal terkoneksi.
+
+
+3. **Kendala:** Kolom "Stok" tidak muncul di TableView.
+* **Solusi:** Menambahkan objek `TableColumn` untuk stok pada metode `setupTable()` di file `PosView.java`.
+
+
+
+## 7. Kesimpulan
+
+Praktikum Week 14 berhasil mengintegrasikan seluruh komponen perangkat lunak menjadi satu kesatuan. Aplikasi Agri-POS kini dapat berjalan secara *end-to-end*, mulai dari antarmuka pengguna (GUI), logika bisnis (Service), hingga penyimpanan data persisten (Database). Penerapan *Unit Testing* juga memberikan jaminan bahwa logika perhitungan keranjang berjalan dengan akurat.
